@@ -229,7 +229,8 @@ async function genOtp(prevForm) {
                     let dataOtp = {
                       TransId: uuidv4(),
                       Data: {
-                        phone: formData.phone
+                        phone: formData.phone,
+                        idCard: formData.idCard
                       }
                     }
             
@@ -308,7 +309,6 @@ function sendWarehouseProcessRequest(prevForm, otpStatus = "Thất bại") {
           $('#loading').show();
           let formData = $(prevForm).getValue();
           console.log("start request")
-          debugger;
           const requestData = {
             custName: formData.name,
             idCard: formData.idCard,
@@ -423,7 +423,7 @@ function verifyOtp(otpDegit) {
                       contact_number: formData.phone,
                       note: JSON.stringify(dataNote),
                     };
-
+                    const timeCallValue = formData.timeCall1 ? formData.timeCall1 : formData.timeCall2;
                     let url = `${env.backEndApi}/api/lead/send`;
                     lib.post({
                       token: token,
@@ -432,8 +432,14 @@ function verifyOtp(otpDegit) {
                       complete: function (response) {
                         $('#loading').hide();
                         sendWarehouseProcessRequest(formId, "Thành công");
-                        showNoti('success', 'Thành công', 'Cảm ơn Quý khách đã đăng ký thông tin. Chúng tôi sẽ liên hệ lại sớm nhất!');
-                        hideModal();
+                        if (timeCallValue === "Tư vấn ngay") {
+                          showNoti('success', 'Đăng ký thành công', "Quý khách vui lòng gọi Hotline 1900 633 070 để được tư vấn ngay");
+                          hideModal();
+                        }
+                        else {
+                          showNoti('success', 'Thành công', 'Cảm ơn Quý khách đã đăng ký thông tin. Chúng tôi sẽ liên hệ lại sớm nhất!');
+                          hideModal();
+                        }
                       },
                       error: function (ex) {
                         $('#loading').hide();
@@ -511,11 +517,15 @@ function validate(formData) {
   let message = "";
   if(!formData.idCard) {
     rs.valid = false;
-    message += `${comma} Số CCCD/CMND/ĐDCN là bắt buộc`;
+    message += `${comma} Số CCCD là bắt buộc`;
     comma = ', <br/>';
   } else if (!lib.validateIdCard(formData.idCard)){
     rs.valid = false;
-    message += `${comma} Số CCCD/CMND/ĐDCN không đúng định dạng`;
+    message += `${comma} Số CCCD không đúng định dạng`;
+    comma = ', <br/>';
+  }else if (!lib.validateIdCardToRegister(formData.idCard).isValid) {
+    rs.valid = false;
+    message += `${comma} Độ tuổi theo số CCCD của Quý khách không nằm trong độ tuổi được cung cấp khoản vay của LOTTE Finance`;
     comma = ', <br/>';
   }
 
@@ -624,7 +634,7 @@ $("#myModal").on("hidden.bs.modal", function () {
 });
 
 function startCountdown() {
-  const countdownTimeInMinutes = 10;
+  const countdownTimeInMinutes = 5;
   const endTime = new Date().getTime() + countdownTimeInMinutes * 60 * 1000;
   function updateCountdown() {
     const currentTime = new Date().getTime();

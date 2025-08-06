@@ -65,8 +65,39 @@ function lib() {
         return re.test(phone);
     };
     this.validateIdCard = function (idcard) {
-        const re = /^(?:\d{9}|\d{12})$/;
+        const re = /^\d{12}$/;
         return re.test(idcard);
+    };
+    this.validateIdCardToRegister = function (idcard) {
+        const re = /^\d{12}$/;
+        if (!re.test(idcard)) {
+            return { isValid: false};
+        }
+
+        const currentYear = new Date().getFullYear();
+
+
+        const centuryIndicator = parseInt(idcard[3], 10);
+        const yearOfBirth = parseInt(idcard.slice(4, 6), 10);
+
+        let fullYearOfBirth;
+        if (centuryIndicator === 0 || centuryIndicator === 1) {
+            fullYearOfBirth = 1900 + yearOfBirth;
+        } else if (centuryIndicator === 2 || centuryIndicator === 3) {
+            fullYearOfBirth = 2000 + yearOfBirth;
+        } else {
+            return { isValid: false};
+        }
+
+        const age = currentYear - fullYearOfBirth;
+
+        if (age < 20 || age > 60) {
+            return {
+                isValid: false
+            };
+        }
+
+        return { isValid: true};
     };
     this.showToast = function(option) {
         if (option.type === 'success') {
