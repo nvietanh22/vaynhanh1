@@ -9599,7 +9599,6 @@
   <div id="fixed-mobile-cta-wrapper">
     <button id="fixed-mobile-cta">Đăng ký ngay</button>
   </div>
-
 <div id="customer-counter-wrapper">
   <div id="customer-counter-inner">
     <img src="./ladi/icon-cash-inhand.png" alt="Happy customer icon" class="counter-icon">
@@ -9609,6 +9608,8 @@
     </div>
   </div>
 </div>
+
+
   <div id="loading"></div>
   <!--[if lt IE 9]><script src="./assets/js/dist/html5shiv.min.js"></script><script src="./assets/js/dist/respond.min.js"></script><![endif]-->
   <style type="text/css">
@@ -10784,6 +10785,32 @@
         justify-content: center;
       }
 
+      /*#customer-counter-wrapper {*/
+      /*  position: absolute;*/
+      /*  z-index: 10;*/
+      /*  padding: 3px;*/
+      /*  border-radius: 100px;*/
+      /*  background: linear-gradient(to right, #CC002E, #EC1848, #9A268F);*/
+      /*  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);*/
+      /*  !*bottom: 420px;*!*/
+      /*  bottom: 235px;*/
+      /*  !*top: 485px;*!*/
+      /*  left: 50%;*/
+      /*  transform: translateX(-50%);*/
+      /*  width: 250px;*/
+      /*}*/
+
+      /*#customer-counter-inner {*/
+      /*  display: flex;*/
+      /*  align-items: center;*/
+      /*  gap: 15px;*/
+      /*  background-color: #fff;*/
+      /*  padding: 12px 17px;*/
+      /*  border-radius: inherit;*/
+      /*  width: auto;*/
+      /*  height: 70px;*/
+      /*}*/
+
       #customer-counter-wrapper {
         position: absolute;
         z-index: 10;
@@ -10791,10 +10818,11 @@
         border-radius: 100px;
         background: linear-gradient(to right, #CC002E, #EC1848, #9A268F);
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        bottom: 240px;
+        width: 250px;
+        top: 410px;
         left: 50%;
         transform: translateX(-50%);
-        width: 250px;
+        bottom: auto;
       }
 
       #customer-counter-inner {
