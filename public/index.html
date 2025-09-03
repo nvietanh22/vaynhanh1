@@ -9599,7 +9599,6 @@
   <div id="fixed-mobile-cta-wrapper">
     <button id="fixed-mobile-cta">Đăng ký ngay</button>
   </div>
-
 <div id="customer-counter-wrapper">
   <div id="customer-counter-inner">
     <img src="./ladi/icon-cash-inhand.png" alt="Happy customer icon" class="counter-icon">
@@ -9609,6 +9608,8 @@
     </div>
   </div>
 </div>
+
+
   <div id="loading"></div>
   <!--[if lt IE 9]><script src="./assets/js/dist/html5shiv.min.js"></script><script src="./assets/js/dist/respond.min.js"></script><![endif]-->
   <style type="text/css">
@@ -10784,6 +10785,32 @@
         justify-content: center;
       }
 
+      /*#customer-counter-wrapper {*/
+      /*  position: absolute;*/
+      /*  z-index: 10;*/
+      /*  padding: 3px;*/
+      /*  border-radius: 100px;*/
+      /*  background: linear-gradient(to right, #CC002E, #EC1848, #9A268F);*/
+      /*  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);*/
+      /*  !*bottom: 420px;*!*/
+      /*  bottom: 235px;*/
+      /*  !*top: 485px;*!*/
+      /*  left: 50%;*/
+      /*  transform: translateX(-50%);*/
+      /*  width: 250px;*/
+      /*}*/
+
+      /*#customer-counter-inner {*/
+      /*  display: flex;*/
+      /*  align-items: center;*/
+      /*  gap: 15px;*/
+      /*  background-color: #fff;*/
+      /*  padding: 12px 17px;*/
+      /*  border-radius: inherit;*/
+      /*  width: auto;*/
+      /*  height: 70px;*/
+      /*}*/
+
       #customer-counter-wrapper {
         position: absolute;
         z-index: 10;
@@ -10791,10 +10818,11 @@
         border-radius: 100px;
         background: linear-gradient(to right, #CC002E, #EC1848, #9A268F);
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        bottom: 420px;
+        width: 250px;
+        top: 410px;
         left: 50%;
         transform: translateX(-50%);
-        width: 250px;
+        bottom: auto;
       }
 
       #customer-counter-inner {
@@ -11242,6 +11270,142 @@
 
 
   }
+</style>
+<style>
+  @media (min-width: 768px) and (max-width: 1366px) {
+    #SECTION2 {
+      height: 720px !important;
+    }
+
+    #SECTION2 .slide-video img {
+      left: 60% !important;
+      transform: translateX(-50%) !important;
+      width: auto !important;
+      height: 100% !important;
+      max-width: none !important;
+    }
+
+    #SECTION2 .slide-static {
+      background-position: center center !important;
+      background-size: cover !important;
+    }
+
+    #GROUP180 {
+      left: auto !important;
+      right: 50px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+    }
+
+    #GROUP180 #IMAGE146 {
+      width: 17px !important;
+      right: 20px !important;
+      left: auto !important;
+    }
+
+    #PARAGRAPH70>.ladi-paragraph,
+    #PARAGRAPH71>.ladi-paragraph,
+    #PARAGRAPH72>.ladi-paragraph,
+    #PARAGRAPH73>.ladi-paragraph,
+    #PARAGRAPH733>.ladi-paragraph,
+    #PARAGRAPH75>.ladi-paragraph,
+    #PARAGRAPH79>.ladi-paragraph,
+    #PARAGRAPH80>.ladi-paragraph,
+    #PARAGRAPH81>.ladi-paragraph,
+    #PARAGRAPH82>.ladi-paragraph,
+    #PARAGRAPH820>.ladi-paragraph,
+    #PARAGRAPH84>.ladi-paragraph,
+    #PARAGRAPH238>.ladi-paragraph,
+    #PARAGRAPH239>.ladi-paragraph,
+    #PARAGRAPH240>.ladi-paragraph,
+    #PARAGRAPH241>.ladi-paragraph,
+    #PARAGRAPH243>.ladi-paragraph,
+    #PARAGRAPH256>.ladi-paragraph,
+    #PARAGRAPH257>.ladi-paragraph,
+    #PARAGRAPH258>.ladi-paragraph,
+    #PARAGRAPH259>.ladi-paragraph,
+    #PARAGRAPH261>.ladi-paragraph {
+      font-size: 13px;
+      line-height: 1.2;
+      color: rgb(0, 0, 0);
+    }
+
+    #SECTION13 #FORM3 .ladi-form-control::placeholder,
+    #SECTION13 #FORM3 .ladi-form-control,
+    #SECTION13 #FORM3 .ladi-form-control-select {
+      font-size: 13px !important;
+    }
+
+    #SECTION13 #FORM_ITEM10,
+    #SECTION13 #FORM_ITEM101,
+    #SECTION13 #FORM_ITEM1011,
+    #SECTION13 #FORM_ITEM11,
+    #SECTION13 #FORM_ITEM12,
+    #SECTION13 #FORM_ITEM77{
+      height: 35px !important;
+    }
+
+    #GROUP102 {
+      /*margin-top: 0 !important;*/
+    }
+
+    #FORM2 {
+      top: 15px !important;
+      height: auto !important;
+    }
+
+    /* Họ và Tên */
+    #PARAGRAPH70 { top: 10px !important; }
+    #FORM_ITEM2 { top: 18px !important; height: 38px !important; }
+
+    /* Số điện thoại */
+    #PARAGRAPH71 { top: 75px !important; }
+    #FORM_ITEM4 { top: 82px !important; height: 38px !important; }
+
+    /* Số CMND/CCCD */
+    #PARAGRAPH72 { top: 140px !important; }
+    #FORM_ITEM76 { top: 146px !important; height: 38px !important; }
+
+    /* Nhóm khách hàng */
+    #PARAGRAPH73 { top: 210px !important; }
+    #FORM_ITEM7 { top: 210px !important; height: 38px !important; }
+
+    /* Thời gian nhận cuộc gọi */
+    #PARAGRAPH733 { top: 276px !important; }
+    #FORM_ITEM7012 { top: 290px !important; }
+    #FORM_ITEM701, #FORM_ITEM7011 { top: 300px !important; height: 38px !important; }
+
+    /* Mã người giới thiệu */
+    #PARAGRAPH7334 { top: 355px !important; }
+    #FORM_ITEM766 { top: 364px !important; height: 38px !important; }
+    #PARAGRAPH73345 { top: 420px !important; font-size: 11px !important; }
+
+    /* Checkbox điều khoản */
+    #FORM_ITEM8 { top: 445px !important; }
+
+    /* Nút Đăng Ký */
+    #BUTTON25 { top: 550px !important; }
+
+    /* Link điều khoản */
+    #PARAGRAPH77 { top: 524px !important; }
+    #PARAGRAPH76 { top: 547px !important; }
+    #IMAGE146 { top: 585px !important; }
+
+
+    #GROUP180, #GROUP105, #GROUP103, #BOX31 {
+      height: 710px !important;
+    }
+
+
+    #IMAGE78 {
+      display: block !important;
+      position: absolute !important;
+      top: -20px !important;
+      right: 35px !important;
+      left: auto !important;
+    }
+  }
+
 </style>
 </body>
 
